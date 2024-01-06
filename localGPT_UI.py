@@ -98,12 +98,7 @@ if "QA" not in st.session_state:
     st.session_state["QA"] = QA
 
 st.title("LocalGPT App 💬")
-# Create a text input box for the user
-prompt = st.text_input("Input your prompt here")
-# while True:
-
-# If the user hits enter
-if prompt:
+if prompt := st.text_input("Input your prompt here"):
     # Then pass the prompt to the LLM
     response = st.session_state["QA"](prompt)
     answer, docs = response["result"], response["source_documents"]
